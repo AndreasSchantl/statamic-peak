@@ -48,7 +48,6 @@ class StarterKitPostInstall
         $this->excludeFormsFolderFromGit();
         $this->setupComposerUpdateWorkflow();
         $this->installNodeDependencies();
-        $this->installPuppeteerAndBrowsershot();
         $this->installTranslations();
         $this->setLocale();
         $this->setTimezone();
@@ -107,6 +106,8 @@ class StarterKitPostInstall
             processingMessage: 'Installing npm dependencies...',
             successMessage: 'npm dependencies installed.',
         );
+
+        $this->installPuppeteerAndBrowsershot();
     }
 
     protected function installPuppeteerAndBrowsershot(): void
