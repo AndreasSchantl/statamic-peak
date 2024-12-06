@@ -195,7 +195,10 @@ class StarterKitPostInstall
 
     protected function writeFiles(): void
     {
+        $changelog = app('files')->get(__DIR__.('/CHANGELOG.md'));
+
         app('files')->put(base_path('.env'), $this->env);
+        app('files')->put(base_path('CHANGELOG.md'), $changelog);
         app('files')->put(base_path('README.md'), $this->readme);
         app('files')->put(base_path('config/app.php'), $this->app);
         app('files')->put(base_path('resources/sites.yaml'), $this->sites);
